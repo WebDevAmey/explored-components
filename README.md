@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Component Showcase
 
-## Getting Started
+A quiet, tasteful showcase of components I've designed and built — layout
+inspired by [designerdada.com](https://www.designerdada.com). Built with
+Next.js 16, Tailwind CSS v4, and three voices: Schibsted Grotesk for reading,
+IM Fell Great Primer for italic flourishes, Sono for mono meta.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Add a new component
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Three steps, all small:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Build the demo** — create `components/showcase/my-thing.tsx` exporting a
+   `MyThingShowcase` component (a small cluster showing off the variants).
+   Add `"use client"` at the top if it has state or handlers.
 
-## Learn More
+2. **Register metadata** — add an entry to `lib/registry.ts`:
 
-To learn more about Next.js, take a look at the following resources:
+   ```ts
+   {
+     slug: "my-thing",
+     name: "My Thing",
+     description: "One tasteful sentence about what it does.",
+     date: "05.Aug.2026",
+     tags: ["input", "form"],
+   }
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Wire up the demo** — add `myThing: <MyThingShowcase />` to the `demos`
+   map in `components/demos.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+That's it. The home page lists it, and `/components/my-thing` renders the
+demo automatically.
 
-## Deploy on Vercel
+## Customize
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Your name, handle, intro, links** — `lib/site.ts`
+- **Palette, fonts, animations** — `app/globals.css` and `app/layout.tsx`
