@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useSyncExternalStore,
 } from "react";
 
@@ -21,6 +20,7 @@ function getInitialTheme(): Theme {
 
 let theme: Theme = typeof window === "undefined" ? "light" : getInitialTheme();
 const listeners = new Set<() => void>();
+let transitioning = false;
 
 function subscribe(onChange: () => void) {
   listeners.add(onChange);
@@ -36,7 +36,29 @@ function getSnapshot() {
 function applyTheme(next: Theme) {
   theme = next;
   localStorage.setItem("theme", next);
-  document.documentElement.classList.toggle("dark", next === "dark");
+
+  const apply = () =>
+    document.documentElement.classList.toggle("dark", next === "dark");
+
+  const reducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (
+    typeof document !== "undefined" &&
+    "startViewTransition" in document &&
+    !transitioning &&
+    !reducedMotion
+  ) {
+    transitioning = true;
+    const transition = document.startViewTransition(apply);
+    transition.finished.catch(() => {}).finally(() => {
+      transitioning = false;
+    });
+  } else {
+    apply();
+  }
+
   listeners.forEach((listener) => listener());
 }
 
@@ -51,10 +73,6 @@ export function useTheme() {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore<Theme>(subscribe, getSnapshot, () => "light");
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]);
 
   const toggleTheme = useCallback(
     () => applyTheme(theme === "light" ? "dark" : "light"),
