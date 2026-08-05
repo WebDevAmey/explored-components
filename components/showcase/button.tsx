@@ -6,7 +6,7 @@ type Variant = "solid" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center rounded-lg font-medium transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed";
+  "group inline-flex items-center justify-center rounded-lg font-medium transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed";
 
 const variants: Record<Variant, string> = {
   solid:
@@ -38,7 +38,13 @@ export function Button({
       className={`${base} ${variants[variant]} ${sizes[size]}`}
       {...props}
     >
-      {children}
+      <span className="relative inline-block">
+        {children}
+        <span
+          aria-hidden="true"
+          className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100"
+        />
+      </span>
     </button>
   );
 }

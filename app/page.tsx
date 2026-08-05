@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Nav from "@/components/nav";
-import Divider from "@/components/divider";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { site } from "@/lib/site";
@@ -24,11 +23,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="animate-in animate-delay-3">
-          <Divider />
-        </div>
-
-        <div className="animate-in animate-delay-4 w-full">
+        <div className="animate-in animate-delay-3 w-full">
           <div className="flex flex-col gap-3 items-start relative shrink-0 w-full">
             <p className="text-olive-400 dark:text-olive-600 text-sm mb-3 uppercase font-mono">
               Components
@@ -47,9 +42,6 @@ export default function Home() {
                     <p className="truncate text-xs text-olive-500 dark:text-olive-400 text-justify whitespace-pre">
                       / {component.description}
                     </p>
-                    <p className="relative shrink-0 text-sm text-olive-500 dark:text-olive-400 font-mono uppercase">
-                      {component.date}
-                    </p>
                   </div>
                 </Link>
               ))}
@@ -57,11 +49,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="animate-in animate-delay-5">
-          <Divider />
-        </div>
-
-        <div className="animate-in animate-delay-6 w-full">
+        <div className="animate-in animate-delay-4 w-full">
           <Footer />
         </div>
       </div>

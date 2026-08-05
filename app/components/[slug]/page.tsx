@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Nav from "@/components/nav";
-import Divider from "@/components/divider";
 import Footer from "@/components/footer";
 import ShowcaseFrame from "@/components/showcase-frame";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -49,14 +48,9 @@ export default async function ComponentPage({ params }: Props) {
             ← All components
           </Link>
 
-          <div className="flex items-baseline justify-between gap-4">
-            <h1 className="text-2xl font-medium text-olive-800 dark:text-olive-100">
-              {component.name}
-            </h1>
-            <p className="font-mono text-xs uppercase text-olive-400 dark:text-olive-500 whitespace-nowrap">
-              {component.date}
-            </p>
-          </div>
+          <h1 className="text-2xl font-medium text-olive-800 dark:text-olive-100">
+            {component.name}
+          </h1>
 
           <p className="text-sm/6 text-justify text-olive-600 dark:text-olive-300">
             {component.description}
@@ -71,11 +65,7 @@ export default async function ComponentPage({ params }: Props) {
           </ShowcaseFrame>
         </div>
 
-        <div className="animate-in animate-delay-3">
-          <Divider />
-        </div>
-
-        <div className="animate-in animate-delay-4 w-full">
+        <div className="animate-in animate-delay-3 w-full">
           <Footer />
         </div>
       </div>

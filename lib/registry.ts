@@ -2,7 +2,6 @@ export type ComponentMeta = {
   slug: string;
   name: string;
   description: string;
-  date: string;
   tags: string[];
 };
 
@@ -12,7 +11,6 @@ export const components: ComponentMeta[] = [
     name: "Button",
     description:
       "Three variants — solid, outline and ghost — across three sizes. The workhorse of any interface, kept quiet so the content can speak.",
-    date: "04.Aug.2026",
     tags: ["action", "form"],
   },
   {
@@ -20,7 +18,6 @@ export const components: ComponentMeta[] = [
     name: "Badge",
     description:
       "Small status pills with a mono voice. Tones for every state: neutral, live, beta and archived.",
-    date: "04.Aug.2026",
     tags: ["status", "data"],
   },
   {
@@ -28,7 +25,6 @@ export const components: ComponentMeta[] = [
     name: "Input",
     description:
       "A labelled field with hints, errors and focus rings that respect the palette. Nothing fancy, everything considered.",
-    date: "04.Aug.2026",
     tags: ["form"],
   },
   {
@@ -36,7 +32,6 @@ export const components: ComponentMeta[] = [
     name: "Toggle",
     description:
       "A switch that stays out of the way until you need it. Accessible by role, honest about its state.",
-    date: "03.Aug.2026",
     tags: ["input", "form"],
   },
   {
@@ -44,7 +39,6 @@ export const components: ComponentMeta[] = [
     name: "Segmented Control",
     description:
       "A pill group for switching between a few related views. The selected state uses the same ink as the primary button.",
-    date: "03.Aug.2026",
     tags: ["navigation", "input"],
   },
   {
@@ -52,7 +46,6 @@ export const components: ComponentMeta[] = [
     name: "Card",
     description:
       "A bordered surface with a title, mono meta and room for content. Composable enough to work as a bento tile.",
-    date: "02.Aug.2026",
     tags: ["layout", "surface"],
   },
   {
@@ -60,7 +53,6 @@ export const components: ComponentMeta[] = [
     name: "Avatar",
     description:
       "Initials in a rotating set of tones. Degrades gracefully — no image, no drama.",
-    date: "02.Aug.2026",
     tags: ["identity", "data"],
   },
   {
@@ -68,7 +60,6 @@ export const components: ComponentMeta[] = [
     name: "Progress",
     description:
       "A slim bar with a mono readout and a patient easing curve. Reports its value without shouting.",
-    date: "01.Aug.2026",
     tags: ["feedback", "data"],
   },
   {
@@ -76,7 +67,6 @@ export const components: ComponentMeta[] = [
     name: "Tooltip",
     description:
       "A quiet helper that appears above, with a little arrow and no lag. Keyboard friendly by design.",
-    date: "01.Aug.2026",
     tags: ["feedback", "overlay"],
   },
   {
@@ -84,7 +74,6 @@ export const components: ComponentMeta[] = [
     name: "Dialog",
     description:
       "A focused modal for decisions. Esc to dismiss, click outside to cancel, and a backdrop that blurs the world away.",
-    date: "31.Jul.2026",
     tags: ["overlay"],
   },
   {
@@ -92,7 +81,6 @@ export const components: ComponentMeta[] = [
     name: "Table",
     description:
       "Data in rows that respect the rhythm — mono headers, quiet separators, status badges where they belong.",
-    date: "30.Jul.2026",
     tags: ["data", "layout"],
   },
   {
@@ -100,7 +88,6 @@ export const components: ComponentMeta[] = [
     name: "Skeleton",
     description:
       "Loading shapes that pulse instead of flicker. Circles, lines and rectangles that preview the final layout.",
-    date: "30.Jul.2026",
     tags: ["feedback", "loading"],
   },
 ];
