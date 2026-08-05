@@ -1,14 +1,18 @@
 export function DisplayCard({
   name,
   description,
+  className,
   children,
 }: {
   name: string;
   description: string;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <article className="group/card flex h-full flex-col overflow-hidden rounded-3xl border border-olive-300 dark:border-olive-700 bg-olive-50 dark:bg-olive-950">
+    <article
+      className={`group/card flex h-full flex-col overflow-hidden rounded-3xl border border-olive-300 dark:border-olive-700 bg-olive-50 dark:bg-olive-950 ${className ?? ""}`}
+    >
       <div className="relative m-2 mb-0 flex min-h-44 flex-1 items-center justify-center overflow-hidden rounded-[1.25rem] bg-olive-100/70 p-4 dark:bg-olive-900/70">
         <div className="transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/card:scale-[1.05]">
           {children}

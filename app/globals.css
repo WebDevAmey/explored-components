@@ -23,6 +23,42 @@
   --font-mono: var(--font-sono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+@theme {
+  --color-primary-foreground: oklch(98.8% 0.003 106.5);
+  --color-accent-foreground: oklch(15.3% 0.006 107.1);
+  --color-input: oklch(88% 0.011 106.6);
+  --primary-foreground: oklch(98.8% 0.003 106.5);
+  --accent-foreground: oklch(15.3% 0.006 107.1);
+  --color-1: oklch(0.505 0.213 27.518);
+  --color-2: oklch(0.72 0.11 178);
+  --color-3: oklch(0.768 0.188 70.08);
+  --color-4: oklch(0.887 0.088 171.094);
+  --color-5: oklch(0.604 0.267 313.306);
+  --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
+
+  @keyframes rainbow {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+}
+
+.dark {
+  --color-primary-foreground: oklch(15.3% 0.006 107.1);
+  --color-accent-foreground: oklch(98.8% 0.003 106.5);
+  --color-input: oklch(39.4% 0.023 107.4);
+  --primary-foreground: oklch(15.3% 0.006 107.1);
+  --accent-foreground: oklch(98.8% 0.003 106.5);
+  --color-1: oklch(0.679 0.157 35.917);
+  --color-2: oklch(0.544 0.181 257.187);
+  --color-3: oklch(0.736 0.234 57.139);
+  --color-4: oklch(0.636 0.081 221.34);
+  --color-5: oklch(0.653 0.242 306.49);
+}
+
 html {
   overflow-y: scroll;
 }

@@ -2,6 +2,7 @@
 
 import { ExpandingPillSend } from "@/components/showcase/expanding-pill-send";
 import StarlightGenerateBtn from "@/components/showcase/starlight-generate-btn";
+import { RainbowButton } from "@/components/showcase/rainbow-button";
 import { DisplayCard } from "@/components/showcase/display-card";
 
 type Variant = "solid" | "outline" | "ghost";
@@ -65,6 +66,13 @@ export function ButtonShowcase() {
         description="Types through generate, generating and generated with a 3D letter flip."
       >
         <StarlightGenerateBtn />
+      </DisplayCard>
+      <DisplayCard
+        name="Rainbow"
+        description="A border of light that loops while you hover — the label runs a full rainbow cycle."
+        className="sm:col-span-2"
+      >
+        <RainbowButton>Generate</RainbowButton>
       </DisplayCard>
     </div>
   );
