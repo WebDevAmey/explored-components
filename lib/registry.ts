@@ -10,7 +10,7 @@ export const components: ComponentMeta[] = [
     slug: "button",
     name: "Button",
     description:
-      "Three variants — solid, outline and ghost — across three sizes. The workhorse of any interface, kept quiet so the content can speak.",
+      "Two animated signatures — an expanding pill that swallows a send arrow, and a starlight button that types through its states with a 3D letter flip.",
     tags: ["action", "form"],
   },
   {

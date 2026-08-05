@@ -196,3 +196,19 @@ body:where(.dark, .dark *) {
 .animate-delay-10 {
   animation-delay: 1s;
 }
+
+@keyframes starlight-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes starlight-twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}

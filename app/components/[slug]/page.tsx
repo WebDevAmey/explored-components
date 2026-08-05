@@ -58,11 +58,18 @@ export default async function ComponentPage({ params }: Props) {
         </div>
 
         <div className="animate-in animate-delay-2 w-full">
-          <ShowcaseFrame
-            caption={component.tags.join(" · ")}
-          >
-            {demo}
-          </ShowcaseFrame>
+          {component.slug === "button" ? (
+            <div className="flex w-full flex-col gap-3">
+              {demo}
+              <p className="text-center font-mono text-[10px] uppercase tracking-wide text-olive-400 dark:text-olive-500">
+                {component.tags.join(" · ")}
+              </p>
+            </div>
+          ) : (
+            <ShowcaseFrame caption={component.tags.join(" · ")}>
+              {demo}
+            </ShowcaseFrame>
+          )}
         </div>
 
         <div className="animate-in animate-delay-3 w-full">

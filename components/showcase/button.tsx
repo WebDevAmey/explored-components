@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { ExpandingPillSend } from "@/components/showcase/expanding-pill-send";
+import StarlightGenerateBtn from "@/components/showcase/starlight-generate-btn";
+import { DisplayCard } from "@/components/showcase/display-card";
 
 type Variant = "solid" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
@@ -50,23 +52,20 @@ export function Button({
 }
 
 export function ButtonShowcase() {
-  const [clicks, setClicks] = useState(0);
-
   return (
-    <div className="flex flex-col gap-6 items-center w-full">
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <Button onClick={() => setClicks((c) => c + 1)}>
-          Solid · {clicks}
-        </Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button disabled>Disabled</Button>
-      </div>
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <Button size="sm">Small</Button>
-        <Button size="md">Medium</Button>
-        <Button size="lg">Large</Button>
-      </div>
+    <div className="grid w-full gap-4 sm:grid-cols-2">
+      <DisplayCard
+        name="Expanding Pill Send"
+        description="A pill that grows, swallows the arrow, and exhales — a send that commits."
+      >
+        <ExpandingPillSend />
+      </DisplayCard>
+      <DisplayCard
+        name="Starlight Generate"
+        description="Types through generate, generating and generated with a 3D letter flip."
+      >
+        <StarlightGenerateBtn />
+      </DisplayCard>
     </div>
   );
 }
