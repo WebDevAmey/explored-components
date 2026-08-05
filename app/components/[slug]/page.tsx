@@ -43,7 +43,7 @@ export default async function ComponentPage({ params }: Props) {
         <div className="animate-in animate-delay-1 w-full flex flex-col gap-4">
           <Link
             href="/"
-            className="link font-normal relative shrink-0 text-sm text-olive-500 hover:text-olive-800 dark:text-olive-500 dark:hover:text-olive-100"
+            className="link font-normal relative w-fit shrink-0 text-sm text-olive-500 hover:text-olive-800 dark:text-olive-500 dark:hover:text-olive-100"
           >
             ← All components
           </Link>

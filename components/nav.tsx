@@ -2,12 +2,9 @@
 
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { useTheme } from "@/components/theme-provider";
-import { Classic } from "@/components/classic-theme-toggle";
+import { ThemeToggle } from "@/components/motion/theme-toggle";
 
 export default function Nav({ count }: { count?: number }) {
-  const { theme, toggleTheme } = useTheme();
-
   return (
     <div className="flex flex-col gap-4 items-start relative shrink-0 w-full">
       <Link
@@ -47,12 +44,10 @@ export default function Nav({ count }: { count?: number }) {
             {count.toString().padStart(2, "0")}
           </span>
         )}
-        <Classic
-          onClick={toggleTheme}
-          className="ml-auto cursor-pointer text-base text-olive-500 transition-colors hover:text-olive-800 dark:text-olive-400 dark:hover:text-olive-50"
-          aria-label={
-            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-          }
+        <ThemeToggle
+          variant="blinds"
+          className="ml-auto cursor-pointer text-olive-500 transition-colors hover:text-olive-800 dark:text-olive-400 dark:hover:text-olive-50"
+          iconClassName="h-4 w-4"
         />
       </nav>
     </div>

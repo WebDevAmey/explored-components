@@ -7,7 +7,7 @@ import {
   useSyncExternalStore,
 } from "react";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";
@@ -20,7 +20,6 @@ function getInitialTheme(): Theme {
 
 let theme: Theme = typeof window === "undefined" ? "light" : getInitialTheme();
 const listeners = new Set<() => void>();
-let transitioning = false;
 
 function subscribe(onChange: () => void) {
   listeners.add(onChange);
@@ -36,36 +35,15 @@ function getSnapshot() {
 function applyTheme(next: Theme) {
   theme = next;
   localStorage.setItem("theme", next);
-
-  const apply = () =>
-    document.documentElement.classList.toggle("dark", next === "dark");
-
-  const reducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (
-    typeof document !== "undefined" &&
-    "startViewTransition" in document &&
-    !transitioning &&
-    !reducedMotion
-  ) {
-    transitioning = true;
-    const transition = document.startViewTransition(apply);
-    transition.finished.catch(() => {}).finally(() => {
-      transitioning = false;
-    });
-  } else {
-    apply();
-  }
-
+  document.documentElement.classList.toggle("dark", next === "dark");
   listeners.forEach((listener) => listener());
 }
 
 const ThemeContext = createContext<{
   theme: Theme;
+  setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
-}>({ theme: "light", toggleTheme: () => {} });
+}>({ theme: "light", setTheme: () => {}, toggleTheme: () => {} });
 
 export function useTheme() {
   return useContext(ThemeContext);
@@ -74,13 +52,17 @@ export function useTheme() {
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore<Theme>(subscribe, getSnapshot, () => "light");
 
+  const setTheme = useCallback((next: Theme) => {
+    applyTheme(next);
+  }, []);
+
   const toggleTheme = useCallback(
     () => applyTheme(theme === "light" ? "dark" : "light"),
     [theme],
   );
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

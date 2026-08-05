@@ -48,57 +48,6 @@ body:where(.dark, .dark *) {
   background-color: #fee685;
 }
 
-:root {
-  --expo-in: cubic-bezier(0.16, 1, 0.3, 1);
-  --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-::view-transition-group(root) {
-  animation-timing-function: var(--expo-in);
-}
-
-::view-transition-new(root) {
-  mask: url("https://media.tenor.com/cyORI7kwShQAAAAi/shigure-ui-dance.gif")
-    center / 0 0 no-repeat;
-  animation: theme-reveal 3s var(--expo-in) both;
-}
-
-::view-transition-old(root) {
-  animation: theme-drift 3s var(--expo-in) both;
-}
-
-@keyframes theme-reveal {
-  0% {
-    mask-size: 0 0;
-  }
-  12% {
-    mask-size: 55vmax 55vmax;
-  }
-  88% {
-    mask-size: 55vmax 55vmax;
-  }
-  100% {
-    mask-size: 2200vmax 2200vmax;
-  }
-}
-
-@keyframes theme-drift {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.03);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(root),
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none !important;
-  }
-}
-
 .link {
   position: relative;
   font-style: italic;
