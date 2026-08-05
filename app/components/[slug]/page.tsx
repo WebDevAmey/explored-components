@@ -33,7 +33,11 @@ export default async function ComponentPage({ params }: Props) {
 
   return (
     <div className="bg-olive-100 dark:bg-olive-900 min-h-screen w-full flex justify-center py-10">
-      <div className="flex flex-col gap-6 items-center w-full max-w-xl px-4">
+      <div
+        className={`flex flex-col gap-6 items-center w-full px-4 ${
+          component.slug === "button" ? "max-w-3xl" : "max-w-xl"
+        }`}
+      >
         <div className="animate-in w-full">
           <ThemeProvider>
             <Nav count={components.length} />

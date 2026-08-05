@@ -54,7 +54,7 @@ export function Button({
 
 export function ButtonShowcase() {
   return (
-    <div className="grid w-full gap-4 sm:grid-cols-2">
+    <div className="grid w-full gap-4 sm:grid-cols-3">
       <DisplayCard
         name="Expanding Pill Send"
         description="A pill that grows, swallows the arrow, and exhales — a send that commits."
@@ -70,7 +70,6 @@ export function ButtonShowcase() {
       <DisplayCard
         name="Rainbow"
         description="A border of light that loops while you hover — the label runs a full rainbow cycle."
-        className="sm:col-span-2"
       >
         <RainbowButton>Generate</RainbowButton>
       </DisplayCard>
