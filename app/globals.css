@@ -100,26 +100,52 @@ body:where(.dark, .dark *) {
 }
 
 .link {
-  text-underline-position: from-font;
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-olive-300);
-  text-decoration-style: solid;
-  text-underline-offset: 4px;
+  position: relative;
   font-style: italic;
   font-weight: 500;
-  transition: text-decoration-color 0.15s;
+  transition:
+    color 0.15s,
+    opacity 0.15s;
 }
 
-:where(.dark, .dark *) .link {
-  text-decoration-color: var(--color-olive-600);
+.link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.14em;
+  height: 0.08em;
+  background-color: currentColor;
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
 }
 
-.link:hover {
-  text-decoration-color: var(--color-olive-500);
+.link:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
 }
 
-:where(.dark, .dark *) .link:hover {
-  text-decoration-color: var(--color-olive-100);
+.link--metis {
+  position: relative;
+}
+
+.link--metis::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 0.08em;
+  background-color: currentColor;
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+}
+
+.group:hover .link--metis::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
 }
 
 @keyframes fadeInUp {

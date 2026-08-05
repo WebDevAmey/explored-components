@@ -42,7 +42,7 @@ export function Button({
         {children}
         <span
           aria-hidden="true"
-          className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100"
+          className="absolute -bottom-1 left-0 h-[2px] w-full origin-right scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100"
         />
       </span>
     </button>

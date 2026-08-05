@@ -35,7 +35,7 @@ export default function Home() {
                   href={`/components/${component.slug}`}
                   className="flex items-center justify-between relative shrink-0 text-justify text-nowrap w-full whitespace-pre group"
                 >
-                  <p className="font-semibold relative shrink-0 text-olive-800 dark:text-olive-100 text-sm group-hover:underline underline-offset-4">
+                  <p className="link--metis font-semibold relative shrink-0 text-olive-800 dark:text-olive-100 text-sm">
                     {component.name}
                   </p>
                   <div className="flex items-center gap-3 min-w-0">
