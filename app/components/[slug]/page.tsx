@@ -30,30 +30,23 @@ export default async function ComponentPage({ params }: Props) {
   if (!component) notFound();
 
   const demo = demos[component.slug];
-  const fullWidth = component.slug === "recreated-components";
+  const wideColumn =
+    component.slug === "button" || component.slug === "recreated-components";
 
   return (
     <div className="bg-olive-100 dark:bg-olive-900 min-h-screen w-full flex justify-center py-10">
       <div
         className={`flex flex-col gap-6 items-center w-full px-4 ${
-          fullWidth
-            ? "max-w-none"
-            : component.slug === "button"
-              ? "max-w-3xl"
-              : "max-w-xl"
+          wideColumn ? "max-w-3xl" : "max-w-xl"
         }`}
       >
-        <div className={`animate-in w-full ${fullWidth ? "max-w-3xl" : ""}`}>
+        <div className="animate-in w-full">
           <ThemeProvider>
             <Nav count={components.length} />
           </ThemeProvider>
         </div>
 
-        <div
-          className={`animate-in animate-delay-1 w-full flex flex-col gap-4 ${
-            fullWidth ? "max-w-3xl" : ""
-          }`}
-        >
+        <div className="animate-in animate-delay-1 w-full flex flex-col gap-4">
           <Link
             href="/"
             className="link font-normal relative w-fit shrink-0 text-sm text-olive-500 hover:text-olive-800 dark:text-olive-500 dark:hover:text-olive-100"
@@ -71,7 +64,7 @@ export default async function ComponentPage({ params }: Props) {
         </div>
 
         <div className="animate-in animate-delay-2 w-full">
-          {component.slug === "button" || component.slug === "recreated-components" ? (
+          {wideColumn ? (
             <div className="flex w-full flex-col gap-3">
               {demo}
               <p className="text-center font-mono text-[10px] uppercase tracking-wide text-olive-400 dark:text-olive-500">
