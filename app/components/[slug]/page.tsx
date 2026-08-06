@@ -43,7 +43,7 @@ export default async function ComponentPage({ params }: Props) {
               : "max-w-xl"
         }`}
       >
-        <div className="animate-in w-full">
+        <div className={`animate-in w-full ${fullWidth ? "max-w-3xl" : ""}`}>
           <ThemeProvider>
             <Nav count={components.length} />
           </ThemeProvider>
