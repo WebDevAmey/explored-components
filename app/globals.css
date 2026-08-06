@@ -197,3 +197,20 @@ body:where(.dark, .dark *) {
     opacity: 1;
   }
 }
+
+@keyframes dot-twinkle {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shine-sweep {
+  to {
+    opacity: 0;
+    background-position: 200%;
+  }
+}
