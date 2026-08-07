@@ -2,6 +2,7 @@ import Link from "next/link";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AsciiBouncingBall, AsciiRain } from "@/components/ascii-animations";
 import { site } from "@/lib/site";
 import { components } from "@/lib/registry";
 
@@ -25,6 +26,7 @@ export default function Home() {
           <span className="absolute right-0 top-10 h-1.5 w-1.5 animate-[starlight-twinkle_2.6s_ease-in-out_infinite_1.1s] rounded-full bg-olive-500/60 dark:bg-olive-400/50" />
           <span className="absolute bottom-1 left-4 h-[3px] w-[3px] animate-[starlight-twinkle_2.2s_ease-in-out_infinite_2s] rounded-full bg-olive-400/80 dark:bg-olive-500/70" />
         </div>
+        <AsciiBouncingBall />
         <p className="animate-[side-drift_7s_ease-in-out_infinite] [writing-mode:vertical-rl] font-mono text-[10px] uppercase tracking-[0.4em] text-olive-400/80 dark:text-olive-500/60">
           Component showcase
         </p>
@@ -37,6 +39,7 @@ export default function Home() {
         <p className="animate-[side-drift_8s_ease-in-out_infinite_0.6s] [writing-mode:vertical-rl] font-mono text-[10px] uppercase tracking-[0.4em] text-olive-400/80 dark:text-olive-500/60">
           UI component library
         </p>
+        <AsciiRain />
         <div className="relative h-20 w-20">
           <span className="absolute left-0 top-10 h-1.5 w-1.5 animate-[starlight-twinkle_2.8s_ease-in-out_infinite_0.4s] rounded-full bg-olive-500/60 dark:bg-olive-400/50" />
           <span className="absolute right-2 top-2 h-1 w-1 animate-[starlight-twinkle_2.4s_ease-in-out_infinite_1.6s] rounded-full bg-olive-400/70 dark:bg-olive-500/60" />
